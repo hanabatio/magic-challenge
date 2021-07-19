@@ -135,6 +135,13 @@ class TestTemperatureDataAnalysisMethods(unittest.TestCase):
         {'station_id' : '2', 'date':'2000.958', 'temperature_c':'-23.000'}]
         self.assertEqual(findMaxChange(test2Data), '2')
 
+        # case 3
+        test3Data = [{'station_id' : '1', 'date':'2000.375', 'temperature_c':'5.400'},
+        {'station_id' : '1', 'date':'2000.542', 'temperature_c':'10.500'},
+        {'station_id' : '2', 'date':'2000.423', 'temperature_c':'23.000'},
+        {'station_id' : '2', 'date':'2000.958', 'temperature_c':'-23.000'}]
+        self.assertEqual(findMaxChange(test3Data), '2')
+
     def test_findMaxChangeInRange(self):
         print("Running tests on part 3: findMaxChangeInRange")
 
@@ -155,6 +162,15 @@ class TestTemperatureDataAnalysisMethods(unittest.TestCase):
         {'station_id' : '3', 'date':'2005.135', 'temperature_c':'5.400'},
         {'station_id' : '3', 'date':'2005.563', 'temperature_c':'10.500'}]
         self.assertEqual(findMaxChangeInRange(test2Data,2000,2006), '2')
+
+        # case 3
+        test3Data = [{'station_id' : '1', 'date':'2000.375', 'temperature_c':'5.400'},
+        {'station_id' : '1', 'date':'2000.542', 'temperature_c':'23.000'},
+        {'station_id' : '2', 'date':'2000.423', 'temperature_c':'23.000'},
+        {'station_id' : '2', 'date':'2000.958', 'temperature_c':'-23.000'},
+        {'station_id' : '3', 'date':'2005.135', 'temperature_c':'5.400'},
+        {'station_id' : '3', 'date':'2005.563', 'temperature_c':'10.500'}]
+        self.assertEqual(findMaxChangeInRange(test3Data,2000,2006), '2')
 
 def main():
     # read weather data in as a dict per row
